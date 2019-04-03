@@ -33,8 +33,13 @@ public class MainActivity extends AppCompatActivity {
             //导航的按钮就叫做HomeAsUp按钮,默认图标是一个返回的箭头,含义是返回到上一个活动
             //这里对他的样式和作用都做了修改
             actionBar.setDisplayHomeAsUpEnabled(true);
+
+
+
             //设置一个导航按钮的图标
             actionBar.setHomeAsUpIndicator(R.drawable.arrow);
+
+
         }
 
         navView.setCheckedItem(R.id.nav_1);
@@ -65,13 +70,13 @@ public class MainActivity extends AppCompatActivity {
                 drawerLayout.openDrawer(GravityCompat.START);
                 break;
             case R.id.backup:
-                Toast.makeText(this, "返回", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "返回  ", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.delete:
-                Toast.makeText(this, "删除", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "删除  ", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.settings:
-                Toast.makeText(this, "设置", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "设置   ", Toast.LENGTH_SHORT).show();
                 break;
         }
         return true;
