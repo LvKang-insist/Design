@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/draw_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--主 界面-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--  高度设置为 ActionBar的高度 -->
+        <!--  背景色设置为 colorPrimary-->
+        <!--  因为已将主题设置为淡色主题，而Toolbar上面的各种元素就会使用深色系
+              这是为了主题和颜色区别开，但是效果就非常差，主题是淡色，但是字体是深色，所以会显得不好看
+              为了让Toolbar能单独使用深色主题，这是我们使用
+              android:theme属性，指定一个深色的主题,-->
+        <!--  如果Toolbar中有菜单按钮，那么弹出的菜单项也是深色主题，这样就再次变得非常难看
+              这里使用app:popupTheme 将菜单项指定为淡色主题，-->
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/tolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        </android.support.v7.widget.Toolbar>
+    </FrameLayout>
+
+    <!--滑动菜单-->
+    <!--android:layout_gravity="start" 指定滑动-的位置-->
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/nav_menu"
+        app:headerLayout="@layout/nav_header"/>
+
+</android.support.v4.widget.DrawerLayout>

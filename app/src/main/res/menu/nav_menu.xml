@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Navigation : 导航-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- group 表示一个组
+         checkableBehavior= single 表示组中的所有菜单项只能单选-->
+    <group android:checkableBehavior="single"/>
+
+    <item
+        android:id="@+id/nav_1"
+        android:icon="@drawable/b"
+        android:title="B"/>
+
+    <item
+        android:id="@+id/nav_2"
+        android:icon="@drawable/c"
+        android:title="C"/>
+
+    <item
+        android:id="@+id/nav_3"
+        android:icon="@drawable/e"
+        android:title="E"/>
+
+    <item
+        android:id="@+id/nav_4"
+        android:icon="@drawable/f"
+        android:title="F"/>
+
+    <item
+        android:id="@+id/nav_5"
+        android:icon="@drawable/p"
+        android:title="P"/>
+
+
+</menu>
