@@ -70,13 +70,13 @@ public class MainActivity extends AppCompatActivity {
                 drawerLayout.openDrawer(GravityCompat.START);
                 break;
             case R.id.backup:
-                Toast.makeText(this, "返回  ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "返回", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.delete:
-                Toast.makeText(this, "删除  ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "删除", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.settings:
-                Toast.makeText(this, "设置   ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "设置", Toast.LENGTH_SHORT).show();
                 break;
         }
         return true;
