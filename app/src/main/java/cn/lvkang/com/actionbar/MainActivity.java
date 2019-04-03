@@ -3,6 +3,7 @@ package cn.lvkang.com.actionbar;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -52,7 +53,15 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "悬浮按钮", Toast.LENGTH_SHORT).show();
+                //传入当前界面的任意布局就行,然后是内容，最后是时间
+                Snackbar.make(v,"是否删除",Snackbar.LENGTH_LONG)
+                        .setAction("确定", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast.makeText(MainActivity.this, "已删除", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .show();
             }
         });
 
