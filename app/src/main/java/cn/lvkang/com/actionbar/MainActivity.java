@@ -1,6 +1,7 @@
 package cn.lvkang.com.actionbar;
 
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,13 +35,8 @@ public class MainActivity extends AppCompatActivity {
             //导航的按钮就叫做HomeAsUp按钮,默认图标是一个返回的箭头,含义是返回到上一个活动
             //这里对他的样式和作用都做了修改
             actionBar.setDisplayHomeAsUpEnabled(true);
-
-
-
             //设置一个导航按钮的图标
             actionBar.setHomeAsUpIndicator(R.drawable.arrow);
-
-
         }
 
         navView.setCheckedItem(R.id.nav_1);
@@ -50,6 +47,15 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "悬浮按钮", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
     //加载Menu文件
     @Override
