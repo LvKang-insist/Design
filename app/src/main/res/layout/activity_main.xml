@@ -11,27 +11,42 @@
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <!--  高度设置为 ActionBar的高度 -->
-        <!--  背景色设置为 colorPrimary-->
-        <!--  因为已将主题设置为淡色主题，而Toolbar上面的各种元素就会使用深色系
-              这是为了主题和颜色区别开，但是效果就非常差，主题是淡色，但是字体是深色，所以会显得不好看
-              为了让Toolbar能单独使用深色主题，这是我们使用
-              android:theme属性，指定一个深色的主题,-->
-        <!--  如果Toolbar中有菜单按钮，那么弹出的菜单项也是深色主题，这样就再次变得非常难看
-              这里使用app:popupTheme 将菜单项指定为淡色主题，-->
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/tolbar"
+        <!--RecyclerView 滚动的时候就会将滚动的事件通知给AppBarLayout-->
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-        </android.support.v7.widget.Toolbar>
+            android:layout_height="wrap_content">
 
+            <!--  高度设置为 ActionBar的高度 -->
+            <!--  背景色设置为 colorPrimary-->
+            <!--  因为已将主题设置为淡色主题，而Toolbar上面的各种元素就会使用深色系
+                  这是为了主题和颜色区别开，但是效果就非常差，主题是淡色，但是字体是深色，所以会显得不好看
+                  为了让Toolbar能单独使用深色主题，这是我们使用
+                  android:theme属性，指定一个深色的主题,-->
+            <!--  如果Toolbar中有菜单按钮，那么弹出的菜单项也是深色主题，这样就再次变得非常难看
+                  这里使用app:popupTheme 将菜单项指定为淡色主题，-->
+
+            <!--  scroll 表示 当RecyclerView 向上滑动的时候 Toolbar会跟着向上滚动，并实现隐藏
+                  enterAlways 表示RecyclerView 向下好的的时候 Toolbar会向下滑动 并重新显示
+                  snap 表示当Toolbar 还没有完成隐藏或者显示的时候，会更据当前的滚动距离，自动选择隐藏还是显示-->
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/tolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_scrollFlags="scroll|enterAlways|snap"/>
+
+        </android.support.design.widget.AppBarLayout>
+
+
+        <!--@string/appbar_scrolling_view_behavior
+            指定了一个布局行为-->
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
         <!-- app:elevation="8dp" 设置悬浮的高度-->
         <android.support.design.widget.FloatingActionButton
@@ -41,7 +56,7 @@
             android:layout_gravity="bottom|right"
             android:layout_margin="16dp"
             android:src="@drawable/save"
-            app:elevation="8dp"/>
+            app:elevation="8dp" />
     </android.support.design.widget.CoordinatorLayout>
 
     <!--滑动菜单-->
@@ -51,7 +66,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:menu="@menu/nav_menu"
-        app:headerLayout="@layout/nav_header"/>
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_menu" />
 
 </android.support.v4.widget.DrawerLayout>
