@@ -1,11 +1,13 @@
 package cn.lvkang.com.actionbar;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,9 +34,15 @@ public class MainActivity extends AppCompatActivity {
             new Fruit("嘎嘎嘎", R.drawable.a5),
             new Fruit("哼哼哼", R.drawable.a6),
             new Fruit("急急急", R.drawable.a7),
+            new Fruit("吼吼吼", R.drawable.a8),
+            new Fruit("咳咳咳", R.drawable.a9),
+            new Fruit("啧啧啧", R.drawable.a10),
     };
     private List<Fruit> list = new ArrayList<>();
+    private FruitAdapter adapter;
+    private SwipeRefreshLayout refreshLayout;
 
+    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("确定", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+                                list.clear();
+                                adapter.notifyDataSetChanged();
                                 Toast.makeText(MainActivity.this, "已删除", Toast.LENGTH_SHORT).show();
                             }
                         })
@@ -87,14 +97,46 @@ public class MainActivity extends AppCompatActivity {
         //卡片布局管理器，显示两列
         GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(layoutManager);
-        FruitAdapter adapter = new FruitAdapter(list,MainActivity.this);
+        adapter = new FruitAdapter(list,MainActivity.this);
         recyclerView.setAdapter(adapter);
+
+        refreshLayout = findViewById(R.id.swipe_refresh);
+        refreshLayout.setColorSchemeColors(R.color.colorPrimary);
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                //执行刷新操作
+                refreshFruits();
+            }
+        });
+    }
+
+    private void refreshFruits() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        initFruits();
+                        adapter.notifyDataSetChanged();
+                        refreshLayout.setRefreshing(false);
+                    }
+                });
+            }
+        }).start();
     }
 
     private void initFruits() {
         Random random = new Random();
+        list.clear();
         for (int i = 0; i < 50; i++) {
-            int index = random.nextInt(7);
+            int index = random.nextInt(fruits.length);
             list.add(fruits[index]);
         }
     }
