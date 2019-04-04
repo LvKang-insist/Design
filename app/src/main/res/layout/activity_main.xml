@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <!--主 界面-->
-    <FrameLayout
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <!--  高度设置为 ActionBar的高度 -->
@@ -28,6 +28,11 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
         </android.support.v7.widget.Toolbar>
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
         <!-- app:elevation="8dp" 设置悬浮的高度-->
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
@@ -37,7 +42,7 @@
             android:layout_margin="16dp"
             android:src="@drawable/save"
             app:elevation="8dp"/>
-    </FrameLayout>
+    </android.support.design.widget.CoordinatorLayout>
 
     <!--滑动菜单-->
     <!--android:layout_gravity="start" 指定滑动-的位置-->
