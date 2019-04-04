@@ -22,7 +22,7 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder>{
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.fruit_item,viewGroup,false);
+        View view = LayoutInflater.from(MyApplication.getContext()).inflate(R.layout.fruit_item,viewGroup,false);
         return new ViewHolder(view);
     }
 

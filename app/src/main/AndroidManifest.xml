@@ -10,6 +10,7 @@
         android:roundIcon="@drawable/a10"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:name=".MyApplication"
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity android:name=".MainActivity">
