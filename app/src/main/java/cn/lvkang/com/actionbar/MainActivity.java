@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private Fruit[] fruits = {
-            new Fruit("哈哈哈", R.drawable.a1),
+            new Fruit("哼哼哼", R.drawable.a1),
             new Fruit("嘻嘻嘻", R.drawable.a2),
             new Fruit("呵呵呵", R.drawable.a3),
             new Fruit("呜呜呜", R.drawable.a4),
@@ -35,8 +35,27 @@ public class MainActivity extends AppCompatActivity {
             new Fruit("哼哼哼", R.drawable.a6),
             new Fruit("急急急", R.drawable.a7),
             new Fruit("吼吼吼", R.drawable.a8),
-            new Fruit("咳咳咳", R.drawable.a9),
+            new Fruit("嘎嘎嘎", R.drawable.a9),
             new Fruit("啧啧啧", R.drawable.a10),
+            new Fruit("啧啧啧", R.drawable.a11),
+            new Fruit("啧啧啧", R.drawable.a12),
+            new Fruit("嘎嘎嘎", R.drawable.a13),
+            new Fruit("哈哈哈", R.drawable.a15),
+            new Fruit("啧啧啧", R.drawable.a16),
+            new Fruit("啧啧啧", R.drawable.a17),
+            new Fruit("吼吼吼", R.drawable.a18),
+            new Fruit("嘎嘎嘎", R.drawable.a19),
+            new Fruit("咳咳咳", R.drawable.a20),
+            new Fruit("吼吼吼", R.drawable.a21),
+            new Fruit("啧啧啧", R.drawable.a22),
+            new Fruit("吼吼吼", R.drawable.a23),
+            new Fruit("啧啧啧", R.drawable.a25),
+            new Fruit("咳咳咳", R.drawable.a26),
+            new Fruit("啧啧啧", R.drawable.a27),
+            new Fruit("哼哼哼", R.drawable.a28),
+            new Fruit("吼吼吼", R.drawable.a29),
+            new Fruit("啧啧啧", R.drawable.a30),
+            new Fruit("吼吼吼", R.drawable.a31),
     };
     private List<Fruit> list = new ArrayList<>();
     private FruitAdapter adapter;
